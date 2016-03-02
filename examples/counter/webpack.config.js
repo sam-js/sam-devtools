@@ -17,7 +17,7 @@ const config = {
   resolve: {
     alias: {
       // 'react': path.join(__dirname, 'node_modules', 'react'),
-      // 'sam-devtools': path.join(__dirname, '..', '..', 'src'),
+      'sam-devtools': path.join(__dirname, '..', '..', 'src'),
     },
     extensions: ['', '.js'],
   },
@@ -31,6 +31,10 @@ const config = {
         loaders: ['babel'], //'react-hot', 
         include: path.join(__dirname, 'src'),
         exclude: path.join(__dirname, 'node_modules'),
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader',
       },
       {
         test: /\.js$/,

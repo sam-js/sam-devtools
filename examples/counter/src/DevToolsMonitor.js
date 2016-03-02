@@ -1,4 +1,4 @@
-require('./style.css')
+require('./DevToolsMonitor.css')
 
 const render = snapshots => {
   let node = document.getElementById('SAMTimeTravelUI')

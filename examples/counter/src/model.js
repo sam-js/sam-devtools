@@ -1,10 +1,15 @@
 import dispatch from './actions.js'
 
 import { createModel } from 'sam'
+import { instrument, subscribe } from 'sam-devtools'
+
+import DevToolsMonitor from './DevToolsMonitor.js'
+
+subscribe(DevToolsMonitor)
 
 // Input: Current store, dataset presented
 // Output: New store
-const container = (store = {}, dataset) => {
+const container = (store = {}, dataset = {}) => {
   if (dataset.increaseBy !== undefined) {
     store.counter += dataset.increaseBy
   }
@@ -38,8 +43,8 @@ const initialStore = {
   counter: 5,
 }
 
-const model = createModel(container, state, nap, initialStore)
+const model = createModel(container, state, nap, initialStore, instrument)
 
-export default  model
+export default model
 
 export let { present } = model
