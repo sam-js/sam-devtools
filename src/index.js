@@ -41,6 +41,17 @@ function liftContainer(container) {
   }
 }
 
+// TODO
+const loadSnapshot = i => {
+  store = getSnapshot(i)
+  updateState()
+}
+const getSnapshot = index => {
+  snapshots = snapshots.slice(0, (index+1))
+  publish()
+  return { ...snapshots[index].store }
+}
+
 export function instrument(createModel) {
   return (container, state, nap, initialStore, enhancer) => {
 
@@ -48,15 +59,5 @@ export function instrument(createModel) {
     const liftedModel = createModel(liftContainer(container), state, nap, initialStore, enhancer)
 
     return liftedModel
-
-
-    // // devtools should return a "lifted" model
-    // // which should look and act like a normal model
-    // return {
-    //   present,
-    //   subscribe,
-    //   getState,
-    //   replaceContainer,
-    // }
   }
 }
