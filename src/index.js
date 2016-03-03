@@ -41,23 +41,36 @@ function liftContainer(container) {
   }
 }
 
-// TODO
-const loadSnapshot = i => {
-  store = getSnapshot(i)
-  updateState()
-}
 const getSnapshot = index => {
   snapshots = snapshots.slice(0, (index+1))
   publish()
   return { ...snapshots[index].store }
 }
 
+function liftNap(nap) {
+  return currentState => {
+    return present => {
+      return nap(currentState)(dataset => {
+        const liftedDataset = {
+          ...dataset,
+          '@@nap': true,
+        }
+        return present(liftedDataset)
+      })
+    }
+  }
+}
+
 export function instrument(createModel) {
+  // This reference can't change otherwise the View will get lost
   return (container, state, nap, initialStore, enhancer) => {
 
+    const model = createModel(liftContainer(container), state, liftNap(nap), initialStore, enhancer)
+    model.loadSnapshot = i => {
+      console.log(model)
+      model.replaceStore(getSnapshot(i))
+    }
     console.log('SAM-devtools ONLINE! *********************')
-    const liftedModel = createModel(liftContainer(container), state, nap, initialStore, enhancer)
-
-    return liftedModel
+    return model
   }
 }

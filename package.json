@@ -4,26 +4,19 @@
   "description": "Devtools for the SAM-JS framework",
   "main": "./lib/index.js",
   "scripts": {
-    "watch": "npm run clean && ./node_modules/.bin/webpack-dev-server --port 1337 --content-base dist --no-info --colors --hot --inline --progress",
-    "build": "npm run clean && NODE_ENV=production node ./node_modules/.bin/webpack --progress --colors",
-    "clean": "rm -rf lib && mkdir -p lib",
+    "build": "npm run clean && ./node_modules/.bin/babel src/ --out-dir lib/",
+    "watch": "npm run build -- --watch",
+    "clean": "mkdir -p lib && rm -f lib/*",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "npm run build"
   },
   "author": "Gunar C. Gessner <gunar@gunargessner.com>",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.6.4",
     "babel-core": "^6.5.2",
-    "babel-loader": "^6.2.3",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-es2015-loose": "^7.0.0",
-    "babel-preset-react": "6.3.13",
-    "babel-preset-stage-0": "^6.3.13",
-    "css-loader": "^0.23.1",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "style-loader": "^0.13.0",
-    "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1"
+    "babel-preset-stage-0": "^6.3.13"
   }
 }

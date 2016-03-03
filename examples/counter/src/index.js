@@ -6,9 +6,6 @@ import model from './model'
 
 import App from './containers/App'
 
-// import { subscribe } from './timeTravelStore'
-// import timeTravelUI from './timeTravelUI'
-
 model.subscribe(state => {
   console.log('View received new state', state)
   render(
@@ -17,7 +14,4 @@ model.subscribe(state => {
   )
 })
 
-
-// TimeTravelUI
-// subscribe(snapshots => timeTravelUI(snapshots))
-// window.loadSnapshot = model.loadSnapshot
+window.loadSnapshot = model.loadSnapshot

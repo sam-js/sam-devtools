@@ -18,6 +18,7 @@ const config = {
     alias: {
       // 'react': path.join(__dirname, 'node_modules', 'react'),
       'sam-devtools': path.join(__dirname, '..', '..', 'src'),
+      // 'sam-devtools-monitor': path.join(__dirname, '..', '..', '..', 'sam-devtools-monitor', 'lib'),
     },
     extensions: ['', '.js'],
   },
