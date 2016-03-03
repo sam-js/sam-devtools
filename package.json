@@ -12,6 +12,10 @@
   },
   "author": "Gunar C. Gessner <gunar@gunargessner.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sam-js/sam-devtools.git"
+  },
   "devDependencies": {
     "babel-cli": "^6.6.4",
     "babel-core": "^6.5.2",
