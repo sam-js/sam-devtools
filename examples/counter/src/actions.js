@@ -1,9 +1,6 @@
-import { present } from './model'
-
-
 // Input: Model
 // Output: Dispatch, i.e. a function which accepts an action and presents values to the model
-const dispatch = action => {
+const dispatch = present => action => {
 
   console.log('Dispatch:', action)
 
