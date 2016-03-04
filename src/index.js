@@ -34,7 +34,7 @@ const loadSnapshot = i => model.replaceStore(getSnapshot(i))
 const publish = _ => listeners.forEach(listener => listener(snapshots, loadSnapshot))
 
 
-function liftContainer(container) {
+export function liftContainer(container) {
   return (store, dataset) => {
     const newStore = container(store, dataset)
     snapshots.push({
@@ -52,7 +52,7 @@ const getSnapshot = index => {
   return { ...snapshots[index].store }
 }
 
-function liftNap(nap) {
+export function liftNap(nap) {
   return currentState => {
     return present => {
       return nap(currentState)(dataset => {
