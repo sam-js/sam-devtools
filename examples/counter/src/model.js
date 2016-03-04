@@ -1,10 +1,13 @@
 import dispatch from './actions.js'
 
-import { createModel } from 'sam'
-import { instrument, subscribe as DevToolsSubscribe } from 'sam-devtools'
+// Monitor
+import { subscribe } from 'sam-devtools'
+import render from 'sam-devtools-monitor'
+subscribe(render)
 
-import monitor from 'sam-devtools-monitor'
-DevToolsSubscribe(monitor)
+import { createModel } from 'sam'
+import { instrument } from 'sam-devtools'
+
 
 // Input: Current store, dataset presented
 // Output: New store
@@ -46,4 +49,4 @@ const model = createModel(container, state, nap, initialStore, instrument)
 
 export default model
 
-export let { present, loadSnapshot } = model
+export let { present } = model

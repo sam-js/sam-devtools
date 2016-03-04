@@ -16,6 +16,7 @@ if (
 }
 
 let snapshots = []
+let model
 const listeners = []
 
 export const subscribe = listener => {
@@ -27,7 +28,11 @@ export const subscribe = listener => {
     listeners.splice(index, 1)
   }
 }
-const publish = _ => listeners.forEach(listener => listener(snapshots))
+
+const loadSnapshot = i => model.replaceStore(getSnapshot(i))
+
+const publish = _ => listeners.forEach(listener => listener(snapshots, loadSnapshot))
+
 
 function liftContainer(container) {
   return (store, dataset) => {
@@ -65,11 +70,7 @@ export function instrument(createModel) {
   // This reference can't change otherwise the View will get lost
   return (container, state, nap, initialStore, enhancer) => {
 
-    const model = createModel(liftContainer(container), state, liftNap(nap), initialStore, enhancer)
-    model.loadSnapshot = i => {
-      console.log(model)
-      model.replaceStore(getSnapshot(i))
-    }
+    model = createModel(liftContainer(container), state, liftNap(nap), initialStore, enhancer)
     console.log('SAM-devtools ONLINE! *********************')
     return model
   }

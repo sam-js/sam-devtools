@@ -13,5 +13,3 @@ model.subscribe(state => {
       document.getElementById('root')
   )
 })
-
-window.loadSnapshot = model.loadSnapshot
