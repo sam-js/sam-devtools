@@ -21,6 +21,7 @@
     "babel-core": "^6.5.2",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-es2015-loose": "^7.0.0",
-    "babel-preset-stage-0": "^6.3.13"
+    "babel-preset-stage-0": "^6.3.13",
+    "deep-equal": "^1.0.1"
   }
 }
