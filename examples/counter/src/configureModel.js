@@ -14,8 +14,8 @@ import { instrument, liftContainer, liftNap } from 'sam-devtools'
 const state = store => {
   return {
     counter: store.counter,
-    isSix: (store.counter == 6),
-    moreThanFive: (store.counter > 5),
+    launchImminent: (store.counter == 9),
+    hasLaunched: (store.launched ? true : false),
   }
 }
 

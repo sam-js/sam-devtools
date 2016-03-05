@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import actions from './actions'
+import createDispatch from './createDispatch'
 import configureModel from './configureModel'
 
 const model = configureModel({
@@ -11,7 +11,7 @@ const model = configureModel({
 
 import App from './containers/App'
 
-const dispatch = actions(model.present)
+const dispatch = createDispatch(model.present)
 
 model.subscribe(state => {
   console.log('View received new state', state)

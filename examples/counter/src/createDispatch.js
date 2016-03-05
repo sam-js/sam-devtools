@@ -1,6 +1,6 @@
 // Input: Model
 // Output: Dispatch, i.e. a function which accepts an action and presents values to the model
-const dispatch = present => action => {
+const createDisptach = present => action => {
 
   console.log('Dispatch:', action)
 
@@ -10,4 +10,4 @@ const dispatch = present => action => {
   }
 }
 
-export default dispatch
+export default createDisptach

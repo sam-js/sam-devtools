@@ -4,6 +4,9 @@ const container = (store = {}, dataset = {}) => {
   if (dataset.increaseBy !== undefined) {
     store.counter += dataset.increaseBy
   }
+  if (dataset.launch) {
+    store.launched = true
+  }
 
   return store
 }
