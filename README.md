@@ -9,7 +9,7 @@ This repo aims to provide functionality similar to Redux's DevTools and shares s
 Clone the project
 
 ```
-npm clone git@github.com:sam-js/sam-devtools.git
+git clone git@github.com:sam-js/sam-devtools.git
 ```
 Install dependencies in the root folder
 ```
