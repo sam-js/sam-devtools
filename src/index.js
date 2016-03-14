@@ -38,7 +38,7 @@ export function liftContainer(container) {
   return (store, dataset) => {
     // check for infinite loop in nap
     if (dataset['@@napLoop']) {
-      const newStore = { '@napLoop': true }
+      const newStore = { '@@napLoop': true }
       snapshots.push({
         dataset: { ...dataset },
         store: {},
