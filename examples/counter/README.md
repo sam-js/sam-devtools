@@ -1,6 +1,6 @@
 # SAM-JS Time Travel
 
-Live [here](http://sam-js.github.io/timetravel).
+Live [here](https://sam-js.github.io/sam-devtools/examples/counter/dist/).
 
 ## npm scripts
 
